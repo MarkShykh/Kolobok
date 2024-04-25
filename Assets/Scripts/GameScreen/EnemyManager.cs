@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+
     public bool IsOnOuter;
+
+    private bool triggered = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+
+        if (other.CompareTag("Player") && !triggered)
         {
+            triggered = true;
             if (IsOnOuter == other.gameObject.GetComponentInParent<KolobokMovement>().IsOnOuterCircle)
             { 
                 Destroy(other.gameObject);
@@ -17,7 +22,7 @@ public class EnemyManager : MonoBehaviour
                 
                 return;
             }
-            gameObject.transform.GetComponent<Animator>().SetBool("Off",true);
+            Destroy(gameObject);
         }
     }
 }

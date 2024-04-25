@@ -46,6 +46,4 @@ public class KolobokMovement : MonoBehaviour
 
         return Quaternion.Euler(0f, 0f, angleDeg - 90);
     }
-
-
 }

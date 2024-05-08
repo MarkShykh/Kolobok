@@ -15,14 +15,12 @@ public class EnemyManager : MonoBehaviour
         if (other.CompareTag("Player") && !triggered)
         {
             triggered = true;
-            if (IsOnOuter == other.gameObject.GetComponentInParent<KolobokMovement>().IsOnOuterCircle)
+            if (IsOnOuter == other.gameObject.GetComponentInParent<KolobokMovement>().IsOnOuterCircle && !other.gameObject.GetComponentInParent<KolobokMovement>().Invincible)
             { 
-                Destroy(other.gameObject);
                 FindObjectOfType<GameState>().IsOver = true;
-                
                 return;
             }
-            Destroy(gameObject);
+            gameObject.GetComponent<Animator>().SetBool("Off",true);
         }
     }
 }

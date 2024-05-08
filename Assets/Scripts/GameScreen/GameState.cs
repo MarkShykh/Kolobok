@@ -48,7 +48,7 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score = (int)((Time.timeSinceLevelLoad * 50) * FindObjectOfType<KolobokMovement>().speed);
+        Score += (int)((Time.timeSinceLevelLoad) * FindObjectOfType<KolobokMovement>().speed)/10;
         GameObject scoreObject = GameObject.Find("Score");
 
         TextMeshProUGUI scoreText = scoreObject.GetComponent<TextMeshProUGUI>();

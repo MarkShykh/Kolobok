@@ -13,7 +13,7 @@ public class CreateEnemy : MonoBehaviour
 
     public GameObject enemyPrefab;
 
-    private float enemySpawnTimeout = 3f;
+    private float enemySpawnTimeout = 2f;
 
     private KolobokMovement kolobok;
 
@@ -31,49 +31,28 @@ public class CreateEnemy : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= enemySpawnTimeout && kolobok != null)
             {
+                // Select a random sprite once
+                int randomSpriteIndex = Random.Range(0, sprites.Length);
+                Sprite randomSprite = sprites[randomSpriteIndex];
+
                 float randomAngle = Random.Range(3f, 6f);
                 Vector3 currentPosition = kolobok.transform.position;
-                Vector3 enemyVector = CalculateEnemyPosition(currentPosition.x, currentPosition.y, kolobok.radius, Mathf.PI / randomAngle);
 
-                Vector3 enemyVector2 = CalculateEnemyPosition(currentPosition.x, currentPosition.y, kolobok.IsOnOuterCircle ? KolobokMovement.InnerRadius : KolobokMovement.Outerradius, Mathf.PI / 0.3f);
+                var isOnOuter = Random.Range(0, 2) == 1;
+                var spawnRadius = isOnOuter ? KolobokMovement.Outerradius : KolobokMovement.InnerRadius;
+                // Calculate enemy positions based on radius
+                Vector3 enemyVector = Utilities.CalculatePosition(currentPosition.x, currentPosition.y, spawnRadius, Mathf.PI / randomAngle);
 
-                var enemy = enemyPrefab.gameObject;
-                enemy.transform.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
-                enemy.transform.GetComponent<EnemyManager>().IsOnOuter = kolobok.IsOnOuterCircle;
-                Instantiate(enemy, enemyVector, CalculateAngle(enemyVector.x, enemyVector.y));
-
-                enemy.transform.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
-                enemy.transform.GetComponent<EnemyManager>().IsOnOuter = !kolobok.IsOnOuterCircle;
-
-                Instantiate(enemy, enemyVector2, CalculateAngle(enemyVector2.x, enemyVector2.y));
+                // Spawn enemies with the same random sprite and set IsOnOuter based on first calculation
+                var enemy1 = Instantiate(enemyPrefab, enemyVector, Utilities.CalculateAngle(enemyVector.x, enemyVector.y));
+                enemy1.transform.GetComponent<SpriteRenderer>().sprite = randomSprite;
+                enemy1.transform.GetComponent<EnemyManager>().IsOnOuter = isOnOuter;
 
                 timer = 0.0f;
-                enemySpawnTimeout = Random.Range(4 / kolobok.speed, 8 / kolobok.speed);
+                enemySpawnTimeout = Random.Range(2 / kolobok.speed, 4 / kolobok.speed);
             }
         }
     }
 
-    private Quaternion CalculateAngle(float x, float y)
-    {
-        Vector3 circleToRectangle = new Vector3(x, y, -3) - new Vector3(0, 0, 0);
 
-        // Calculate the angle of rotation in radians
-        float angleRad = Mathf.Atan2(circleToRectangle.y, circleToRectangle.x);
-
-        // Convert angle from radians to degrees
-        float angleDeg = angleRad * Mathf.Rad2Deg;
-
-        return Quaternion.Euler(0f, 0f, angleDeg - 90);
-    }
-
-    private Vector3 CalculateEnemyPosition(float x, float y,float radius,float angle)
-    {
-        float angleToKnownPoint = Mathf.Atan2(y, x) + angle;
-
-        // Step 3: Calculate coordinates of the point on the circle
-        float newx = radius * Mathf.Cos(angleToKnownPoint);
-        float newy = radius * Mathf.Sin(angleToKnownPoint);
-
-        return new Vector3(newx, newy, -3);
-    }
 }

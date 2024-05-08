@@ -9,6 +9,8 @@ public class KolobokMovement : MonoBehaviour
     public float radius = 1.19f;
     public float angle = 0f;
     private bool isOnOuterCircle = true;
+    
+    public bool Invincible = false;
 
     public static float Outerradius = 1.19f;
     public static float InnerRadius = 0.93f;

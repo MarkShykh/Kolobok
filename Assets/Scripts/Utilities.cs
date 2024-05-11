@@ -27,4 +27,16 @@ public class Utilities
 
         return new Vector3(newx, newy, -3);
     }
+
+
+    public static Vector3 GetCanvasPositionFromWorldPosition(Camera camera,Canvas canvas, Vector3 worldPosition)
+    {
+
+        Vector3 viewportPos = camera.WorldToViewportPoint(worldPosition);
+
+        RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+        Vector2 canvasSize = canvasRect.sizeDelta;
+        Vector3 canvasPos = new Vector3(viewportPos.x * canvasSize.x, viewportPos.y * canvasSize.y,-3);
+        return canvasPos;
+    }
 }

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class SettingsButtons : MonoBehaviour
 {
     [SerializeField]
     private Animator SettingsAnimator;
-    public void OnPlayButton()
+    public void OnSaveButon()
     {
-        SceneManager.LoadScene(1);
+        OnCloseButton();
     }
 
-    public void OnSettingsButton() {
-        SettingsAnimator.SetBool("On",true);
+    public void OnCloseButton()
+    {
+        SettingsAnimator.SetBool("On", false);
     }
 }

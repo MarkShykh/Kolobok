@@ -9,7 +9,7 @@ public class GameOverScript : MonoBehaviour
     public GameObject WinPopup;
     void Start()
     {
-        var currentScore = GameState.Score;
+        var currentScore = ScoreHandler.Score;
 
         GameObject scene;
         if (PlayerPrefs.HasKey("HighScore"))
@@ -24,7 +24,7 @@ public class GameOverScript : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("HighScore", GameState.Score);
+            PlayerPrefs.SetInt("HighScore", ScoreHandler.Score);
             scene = Instantiate(WinPopup);
         }
 

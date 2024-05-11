@@ -5,9 +5,10 @@ using UnityEngine;
 public class EggPowerUpCollide : MonoBehaviour
 {
     private bool triggered = false;
+    public GameObject multiplierPrefab;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !triggered)
+        if (other.CompareTag("Player") && !triggered) 
         {
             triggered = true;
             
@@ -15,7 +16,8 @@ public class EggPowerUpCollide : MonoBehaviour
             {
                 gameObject.GetComponentInParent<Animator>().SetBool("Consume", true);
                 other.gameObject.GetComponentInParent<Animator>().SetBool("Consume", true);
-                Debug.Log("Consumed!");
+                FindObjectOfType<ScoreMultiplierLogic>().AddMultiplier();
+                FindObjectOfType<MultiplierPopup>().Display(gameObject.transform);
                 return;
             }
             gameObject.GetComponentInParent<Animator>().SetBool("Off", true);

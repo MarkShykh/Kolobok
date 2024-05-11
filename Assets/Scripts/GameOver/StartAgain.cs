@@ -9,4 +9,9 @@ public class StartAgain : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void Home()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

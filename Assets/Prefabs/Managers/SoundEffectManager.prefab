@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7964484992590527525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7964484992590527524}
+  m_Layer: 0
+  m_Name: SoundEffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7964484992590527524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964484992590527525}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9077927600297824316}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7964484992378277766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7964484992590527524}
+    m_Modifications:
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27990514
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25483045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0451239
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435057388322942804, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: soundFXObject
+      value: 
+      objectReference: {fileID: 5007133225505464536}
+    - target: {fileID: 3169234261067444062, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4527662513699904077, guid: f9f1fd089e8f7d64a80dac30b573d528, type: 2}
+    - target: {fileID: 5133581173343331190, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+      propertyPath: m_Name
+      value: SoundFXObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+--- !u!82 &5007133225505464536 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3169234261067444062, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+  m_PrefabInstance: {fileID: 7964484992378277766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9077927600297824316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1404225783967539130, guid: 641a4b41be43a8e4b810288475a82b7a, type: 3}
+  m_PrefabInstance: {fileID: 7964484992378277766}
+  m_PrefabAsset: {fileID: 0}
